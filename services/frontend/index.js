@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelectorAll('.button-buy').forEach((btn) => {
                     btn.addEventListener('click', (e) => {
                         swal('Compra de livro', 'Sua compra foi realizada com sucesso', 'success');
+                        book.quantity = book.quantity - 1
                     });
                 });
             }
