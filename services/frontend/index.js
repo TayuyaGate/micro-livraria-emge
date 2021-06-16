@@ -12,11 +12,13 @@ function controleEstoque(id){
     if(estoque[id-1].quantidade == 'Produto Indisponível'){
         estoque[id-1].mensagem = ''  
         estoque[id-1].quantidade = 'Produto Indisponível'   
+        swal('Operação indisponível', 'Não há produtos em estoque para prosseguir com a compra', 'error');
     }else{
         estoque[id-1].quantidade = estoque[id-1].quantidade - 1  
+        swal('Compra de livro', 'Sua compra foi realizada com sucesso', 'success');
         if(estoque[id-1].quantidade == 0){
             estoque[id-1].mensagem = ''  
-            estoque[id-1].quantidade = 'Produto Indisponível'   
+            estoque[id-1].quantidade = 'Produto Indisponível'  
         }
     }
     const books = document.querySelector('.books');
@@ -111,7 +113,6 @@ function start(){
                     btn.addEventListener('click', (e) => {
                         const id = e.target.getAttribute('data-id');
                         controleEstoque(id)
-                        swal('Compra de livro', 'Sua compra foi realizada com sucesso', 'success');
                     });
                 });
             }
